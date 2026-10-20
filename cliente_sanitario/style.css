@@ -1,0 +1,260 @@
+@charset "UTF-8";
+body{
+    font-family: Tahoma, Arial, sans-serif;
+    background:#fdf4f8;
+    color:#444;
+    margin:0;
+    padding:25px;
+}
+
+.titulo{
+    text-align:center;
+    color:#8e2458;
+    font-size:2.6rem;
+    margin-bottom:25px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+#login,
+#registro,
+#main,
+#detalleRecurso,
+#resenyaNueva{
+    background:#fff;
+    max-width:1100px;
+    margin:20px auto;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 15px 35px rgba(142,36,88,.15);
+}
+
+table{
+    width:100%;
+    border-spacing:0;
+    border-collapse:separate;
+    overflow:hidden;
+    border-radius:20px;
+}
+
+th{
+    background:linear-gradient(90deg,#ad1457,#ce4b86);
+    color:white;
+    padding:16px;
+}
+
+td{
+    padding:16px;
+    text-align:center;
+    border-bottom:2px solid #f7dce8;
+}
+
+button{
+    background:linear-gradient(90deg,#ad1457,#d81b60);
+    color:white;
+    border:none;
+    border-radius:20px;
+    padding:11px 28px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    opacity:.9;
+    transform:translateY(-4px);
+}
+
+.botones-footer{
+    display:flex;
+    justify-content:space-between;
+    margin-top:25px;
+}
+
+.boton-derecha{
+    margin-left:auto;
+}
+
+.blanco{background:white;}
+.azul{background:#dcefff;color:#0d47a1;}
+.rojo{background:#ffe6e6;color:#b71c1c;}
+.verde{background:#e5f8e7;color:#1b5e20;}
+
+label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:bold;
+}
+
+input,
+select{
+    width:100%;
+    box-sizing:border-box;
+    padding:12px;
+    border-radius:15px;
+    border:2px solid #efbfd4;
+    margin-bottom:15px;
+}
+
+input:focus,
+select:focus{
+    outline:none;
+    border-color:#ad1457;
+    box-shadow:0 0 10px rgba(173,20,87,.2);
+}
+
+.activa{
+    display:block;
+    animation:fade .5s;
+}
+
+.inactiva{
+    display:none;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+/* =========================================================
+   ADAPTACIÓN A MÓVIL
+   ========================================================= */
+@media (max-width: 768px){
+
+    body{
+        padding:10px;
+    }
+
+    .titulo{
+        font-size:1.6rem;
+        letter-spacing:1px;
+        margin-bottom:10px;
+    }
+
+    #login,
+    #registro,
+    #main,
+    #detalleRecurso,
+    #resenyaNueva{
+        margin:10px auto;
+        padding:20px 15px;
+        border-radius:18px;
+    }
+
+    button{
+        padding:10px 18px;
+    }
+
+    .botones-footer{
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    /* ---------- Tablas convertidas en tarjetas ---------- */
+    table,
+    thead,
+    tbody,
+    tr,
+    th,
+    td{
+        display:block;
+        width:100%;
+        box-sizing:border-box;
+    }
+
+    table{
+        border:none;
+        border-radius:0;
+        margin-bottom:20px;
+    }
+
+    /* La cabecera se oculta: cada celda muestra su propia etiqueta */
+    thead{
+        display:none;
+    }
+
+    tr{
+        margin-bottom:15px;
+        padding:10px 15px;
+        background:#fff;
+        border:2px solid #f7dce8;
+        border-radius:18px;
+        box-shadow:0 5px 15px rgba(142,36,88,.08);
+    }
+
+    td{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:10px;
+        padding:8px 0;
+        text-align:right;
+        border:none;
+        border-bottom:1px solid #f7dce8;
+        word-break:break-word;
+    }
+
+    tr td:last-child{
+        border-bottom:none;
+    }
+
+    /* Etiqueta de cada dato */
+    td::before{
+        font-weight:bold;
+        color:#8e2458;
+        text-align:left;
+    }
+
+    /* Celdas vacías (p. ej. sin botón "Retirar") no ocupan espacio */
+    td:empty{
+        display:none;
+    }
+
+    /* Filas de mensaje ("No hay recursos...") */
+    td[colspan]{
+        justify-content:center;
+        text-align:center;
+    }
+    td[colspan]::before{
+        content:none !important;
+    }
+
+    /* Celdas que solo tienen botones: botón a lo ancho */
+    td > button{
+        width:100%;
+    }
+
+    /* --- Reservas pendientes --- */
+    #tablaPendientes td:nth-child(1)::before{content:"Categor\0000EDa";}
+    #tablaPendientes td:nth-child(2)::before{content:"Modelo";}
+    #tablaPendientes td:nth-child(3)::before{content:"N. Serie";}
+    #tablaPendientes td:nth-child(4)::before{content:"Ubicaci\0000F3n";}
+    #tablaPendientes td:nth-child(5)::before{content:"F. Petici\0000F3n";}
+    #tablaPendientes td:nth-child(6)::before{content:"H. Restantes";}
+
+    /* --- Reservas realizadas --- */
+    #tablaRealizadas td:nth-child(1)::before{content:"Categor\0000EDa";}
+    #tablaRealizadas td:nth-child(2)::before{content:"Modelo";}
+    #tablaRealizadas td:nth-child(3)::before{content:"N. Serie";}
+    #tablaRealizadas td:nth-child(4)::before{content:"Horas estimadas";}
+    #tablaRealizadas td:nth-child(5)::before{content:"F. Inicio";}
+    #tablaRealizadas td:nth-child(6)::before{content:"F. Fin";}
+    /* si la celda F. Fin contiene el botón "Devolver", sin etiqueta */
+    #tablaRealizadas td:nth-child(6):has(button)::before{content:none;}
+
+    /* --- Avisos --- */
+    #avisosSanit td:nth-child(1)::before{content:"Fecha";}
+    #avisosSanit td:nth-child(2)::before{content:"Origen";}
+    #avisosSanit td:nth-child(3)::before{content:"Texto";}
+
+    /* --- Recursos disponibles (nueva reserva) --- */
+    #tablaReservas td:nth-child(1)::before{content:"N. Serie";}
+    #tablaReservas td:nth-child(2)::before{content:"Ubicaci\0000F3n";}
+    #tablaReservas td:nth-child(3)::before{content:"H. Restantes";}
+    #tablaReservas td:nth-child(4)::before{content:"Valoraci\0000F3n";}
+}
