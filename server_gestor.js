@@ -14,8 +14,8 @@ var clave = "marina";
 const { createClient } = require('@supabase/supabase-js');
 
 // 2. Configurar con tu URL y tu Public Key (anon key)
-const supabaseUrl = 'https://mcfqchwmtlolufbmbbtr.supabase.co';
-const supabaseKey = 'sb_publishable_m0lKEmUIMpjVen3d0xO3aQ_FNutSo3e';
+const supabaseUrl = 'https://uupobfehzpaorbyrfmqt.supabase.co';
+const supabaseKey = 'sb_publishable_i5x4x5B1pfCJY4Y0aV3x6A_a-8x5skO';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 app.use("/appClienteGestor", express.static("cliente_gestor")); 
